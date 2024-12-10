@@ -1,0 +1,213 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>常用命令 | Gridea</title>
+<link rel="shortcut icon" href="https://blog.llol.cf/favicon.ico?v=1733836519881">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.llol.cf/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="常用命令 | Gridea - Atom Feed" href="https://blog.llol.cf/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="简单docker创建：
+FROM golang:1.22-alpine as builder
+WORKDIR /app
+COPY ..
+RUN go mod tidy
+RUN go build -o /simple_server #outp..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.llol.cf">
+  <img class="avatar" src="https://blog.llol.cf/images/avatar.png?v=1733836519881" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              常用命令
+            </h2>
+            <div class="post-info">
+              <span>
+                2024-12-10
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://blog.llol.cf/post-images/chang-yong-ming-ling.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <h2 id="简单docker创建">简单docker创建：</h2>
+<pre><code>FROM golang:1.22-alpine as builder
+WORKDIR /app
+COPY ..
+RUN go mod tidy
+RUN go build -o /simple_server #output
+FROM scratch
+COPY --from=builder /simple_server / # COPY --from=0
+CMD [&quot;/simple_server&quot;]
+docker build -t simple_server:0.1 . # tag
+</code></pre>
+<h2 id="不同终端的代理配置">不同终端的代理配置</h2>
+<p>powershell连接：<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>e</mi><mi>n</mi><mi>v</mi><mo>:</mo><mi>a</mi><mi>l</mi><msub><mi>l</mi><mi>p</mi></msub><mi>r</mi><mi>o</mi><mi>x</mi><mi>y</mi><mo>=</mo><mi>h</mi><mi>t</mi><mi>t</mi><mi>p</mi><mo>:</mo><mi mathvariant="normal">/</mi><mi mathvariant="normal">/</mi><mn>127.0.0.1</mn><mo>:</mo><mn>20001</mn></mrow><annotation encoding="application/x-tex">env:all_proxy=http://127.0.0.1:20001
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">p</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault">x</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mord mathdefault">t</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord">/</span><span class="mord">1</span><span class="mord">2</span><span class="mord">7</span><span class="mord">.</span><span class="mord">0</span><span class="mord">.</span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span></span></span></span>env:http_proxy=http://127.0.0.1:20001<br>
+$env:https_proxy=http://127.0.0.1:20001<br>
+linux连接(git bash)：<br>
+export all_proxy=http://127.0.0.1:20001<br>
+export http_proxy=http://127.0.0.1:20001<br>
+export https_proxy=http://127.0.0.1:20001<br>
+cmd连接：<br>
+set all_proxy=http://127.0.0.1:20001<br>
+set http_proxy=http://127.0.0.1:20001<br>
+set https_proxy=http://127.0.0.1:20001<br>
+仅git代理设置：<br>
+git config --global --list<br>
+git config --global http.proxy http://127.0.0.1:20001<br>
+git config --global https.proxy http://127.0.0.1:20001<br>
+git config --global --unset http.proxy<br>
+git config --global --unset https.proxy</p>
+<h2 id="关闭打开-hyper-v">关闭/打开 Hyper-V :</h2>
+<p>bcdedit /set hypervisorlaunchtype off  #然后重启电脑<br>
+bcdedit /set hypervisorlaunchtype auto #然后重启电脑</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%AE%80%E5%8D%95docker%E5%88%9B%E5%BB%BA">简单docker创建：</a></li>
+<li><a href="#%E4%B8%8D%E5%90%8C%E7%BB%88%E7%AB%AF%E7%9A%84%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE">不同终端的代理配置</a></li>
+<li><a href="#%E5%85%B3%E9%97%AD%E6%89%93%E5%BC%80-hyper-v">关闭/打开 Hyper-V :</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.llol.cf/post/hello-gridea/">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://blog.llol.cf/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
